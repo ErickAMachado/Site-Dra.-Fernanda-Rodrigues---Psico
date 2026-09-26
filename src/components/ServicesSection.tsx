@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import {
   Baby,
   Brain,
+  ClipboardList,
   Heart,
   MessageCircleHeart,
   Puzzle,
@@ -22,6 +23,7 @@ const icons = [
   Puzzle,
   ShieldAlert,
   Brain,
+  ClipboardList,
 ];
 
 export default function ServicesSection() {
@@ -37,7 +39,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {serviceAreas.map((area, index) => {
             const Icon = icons[index % icons.length];
 

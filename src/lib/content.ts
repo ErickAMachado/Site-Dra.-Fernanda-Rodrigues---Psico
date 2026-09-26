@@ -1,7 +1,7 @@
 import type { Testimonial } from "@/types/database";
 
 export const siteContent = {
-  psychologistName: "Dra. Fernanda Rodrigues",
+  psychologistName: "Fernanda Rodrigues",
   hero: {
     title:
       "Cuidado psicológico para crianças e adolescentes com acolhimento, escuta e desenvolvimento",
@@ -93,6 +93,11 @@ export const serviceAreas = [
   {
     title: "Ansiedade infantil/adolescente",
     description: "Apoio para medos, preocupações e sintomas de ansiedade.",
+  },
+  {
+    title: "Avaliação neuropsicológica",
+    description:
+      "Entre em contato pelo WhatsApp para saber mais sobre a avaliação neuropsicológica e a aplicação de testes.",
   },
 ];
 
