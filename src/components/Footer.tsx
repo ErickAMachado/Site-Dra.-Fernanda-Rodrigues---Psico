@@ -4,7 +4,6 @@ import { siteContent } from "@/lib/content";
 const navLinks = [
   { href: "#sobre", label: "Sobre" },
   { href: "#areas", label: "Áreas" },
-  { href: "#depoimentos", label: "Depoimentos" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -20,9 +19,8 @@ export default function Footer() {
               {siteContent.psychologistName}
             </p>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
-              Atendimento psicológico para crianças e adolescentes, com
-              acolhimento, escuta profissional e experiência com crianças
-              autistas.
+              Psicoterapia e avaliação neuropsicológica, com foco em crianças e
+              adolescentes e atendimento também a adultos.
             </p>
           </div>
 
@@ -47,7 +45,7 @@ export default function Footer() {
             © {year} {siteContent.psychologistName}. Todos os direitos reservados.
           </p>
           <p className="mt-2">
-            CRP [00/00000] · Endereço profissional · Cidade/UF
+            Psicóloga · {siteContent.registration} · Hortolândia/SP
           </p>
         </div>
       </div>

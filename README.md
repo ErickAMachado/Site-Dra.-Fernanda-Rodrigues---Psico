@@ -1,6 +1,6 @@
 # Site profissional — Psicóloga infantil e adolescente
 
-Landing page institucional em Next.js 15 para psicóloga que atende crianças e adolescentes, com contato exclusivamente pelo WhatsApp e depoimentos via Supabase.
+Landing page institucional em Next.js 15 para psicóloga que atende crianças e adolescentes, com foco em crianças e adolescentes, atendimento também a adultos e contato exclusivamente pelo WhatsApp.
 
 ## Stack
 
@@ -141,11 +141,11 @@ Edite em `src/lib/content.ts`:
 - FAQ
 - áreas de atuação
 
-Substitua também placeholders como CRP, endereço e foto profissional no Hero.
+O CRP está centralizado em `src/lib/content.ts`. O local é divulgado apenas como Hortolândia; o endereço é informado no contato direto.
 
 ## Observações
 
 - Sem painel administrativo nesta versão
-- Depoimentos mockados aparecem automaticamente se o Supabase não estiver configurado
+- A página pública não exibe depoimentos de exemplo nem consulta depoimentos no Supabase.
 - O site não possui formulário nem API para receber dados de contato; os botões abrem o WhatsApp.
 - A remoção do formulário não altera tabelas ou registros existentes no Supabase.

@@ -13,14 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Psicóloga Infantil e Adolescente | Atendimento para Crianças e Adolescentes",
+  title: "Fernanda Rodrigues | Psicóloga em Hortolândia | CRP 06/210733",
   description:
-    "Atendimento psicológico para crianças e adolescentes, com acolhimento, escuta profissional e experiência com crianças autistas.",
+    "Psicoterapia com TCC para crianças, adolescentes e adultos. Presencial em Hortolândia e online para adolescentes e adultos. Avaliação neuropsicológica presencial.",
   openGraph: {
     title:
-      "Psicóloga Infantil e Adolescente | Atendimento para Crianças e Adolescentes",
+      "Fernanda Rodrigues | Psicóloga em Hortolândia | CRP 06/210733",
     description:
-      "Atendimento psicológico para crianças e adolescentes, com acolhimento, escuta profissional e experiência com crianças autistas.",
+      "Psicoterapia com TCC para crianças, adolescentes e adultos. Presencial em Hortolândia e online para adolescentes e adultos. Avaliação neuropsicológica presencial.",
     locale: "pt_BR",
     type: "website",
   },

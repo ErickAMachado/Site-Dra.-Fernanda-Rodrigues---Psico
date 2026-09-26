@@ -14,8 +14,7 @@ export default function FAQSection() {
         <div className="text-center">
           <h2 className="section-title">Perguntas frequentes</h2>
           <p className="section-subtitle mx-auto">
-            Respostas simples para ajudar pais e responsáveis a entenderem o
-            atendimento.
+            Algumas dúvidas antes de conversarmos.
           </p>
         </div>
 

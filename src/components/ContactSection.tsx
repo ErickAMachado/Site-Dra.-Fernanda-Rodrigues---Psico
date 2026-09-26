@@ -27,7 +27,7 @@ export default function ContactSection() {
             className="btn-primary mt-8"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            Conversar no WhatsApp
+            Fale comigo pelo WhatsApp
           </a>
         </motion.div>
       </div>

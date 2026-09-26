@@ -1,41 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Baby,
-  Brain,
-  ClipboardList,
-  Heart,
-  MessageCircleHeart,
-  Puzzle,
-  ShieldAlert,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { Baby, Brain, ClipboardList, Heart, Sparkles, Users } from "lucide-react";
 import { serviceAreas } from "@/lib/content";
 
-const icons = [
-  Baby,
-  Sparkles,
-  Users,
-  Heart,
-  MessageCircleHeart,
-  Puzzle,
-  ShieldAlert,
-  Brain,
-  ClipboardList,
-];
+const icons = [Baby, Sparkles, Heart, Users, Brain, ClipboardList];
 
 export default function ServicesSection() {
   return (
     <section id="areas" className="bg-white/60 py-20 sm:py-24">
       <div className="section-container">
         <div className="max-w-2xl">
-          <h2 className="section-title">Áreas de atuação</h2>
+          <h2 className="section-title">Como posso acompanhar você</h2>
           <p className="section-subtitle">
-            Atendimento voltado ao desenvolvimento emocional, social e
-            comportamental de crianças e adolescentes, com apoio também às
-            famílias.
+            Meu foco está na infância e na adolescência, mas o atendimento
+            também está aberto a adultos. Conheça as possibilidades.
           </p>
         </div>
 

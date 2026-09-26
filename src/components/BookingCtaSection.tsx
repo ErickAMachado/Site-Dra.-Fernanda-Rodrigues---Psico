@@ -7,7 +7,7 @@ import { siteContent } from "@/lib/content";
 
 export default function BookingCtaSection() {
   const whatsappUrl = getWhatsAppUrl(
-    "Olá, gostaria de agendar uma conversa inicial sobre o atendimento.",
+    "Olá, Fernanda! Gostaria de conversar sobre o atendimento.",
   );
 
   return (
@@ -23,7 +23,7 @@ export default function BookingCtaSection() {
           <div className="max-w-2xl">
             <div className="mb-3 inline-flex items-center gap-2 text-sm font-medium text-primary">
               <CalendarHeart className="h-4 w-4" aria-hidden="true" />
-              Agendamento
+              Primeiro contato
             </div>
             <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               {siteContent.bookingCta.title}
@@ -41,7 +41,7 @@ export default function BookingCtaSection() {
               className="btn-primary w-full"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              Falar pelo WhatsApp
+              Fale comigo pelo WhatsApp
             </a>
           </div>
         </motion.div>

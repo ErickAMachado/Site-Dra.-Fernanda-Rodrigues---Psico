@@ -28,13 +28,13 @@ export default function AboutSection() {
             {siteContent.psychologistName}
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
-            CRP [00/00000] · Psicologia infantil e adolescente
+            Psicóloga · {siteContent.registration}
           </p>
           <ul className="mt-6 space-y-3 text-sm text-foreground">
-            <li>• Escuta acolhedora e respeito à individualidade</li>
-            <li>• Experiência com desenvolvimento infantil</li>
-            <li>• Acompanhamento de crianças autistas</li>
-            <li>• Orientação clara para pais e responsáveis</li>
+            <li>• Terapia Cognitivo-Comportamental (TCC)</li>
+            <li>• Foco em crianças e adolescentes, com atendimento também a adultos</li>
+            <li>• Atendimento presencial em Hortolândia</li>
+            <li>• Psicoterapia online para adolescentes e adultos</li>
           </ul>
         </motion.div>
       </div>

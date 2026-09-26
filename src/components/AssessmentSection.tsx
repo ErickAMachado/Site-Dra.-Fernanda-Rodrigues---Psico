@@ -18,7 +18,7 @@ export default function AssessmentSection() {
             <div>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-medium">
                 <ClipboardList className="h-4 w-4" aria-hidden="true" />
-                Avaliação e aplicação de testes
+                Presencial em Hortolândia
               </div>
               <h2 id="assessment-title" className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 {assessment.title}
@@ -26,11 +26,12 @@ export default function AssessmentSection() {
               <p className="mt-5 max-w-2xl text-base leading-relaxed sm:text-lg">
                 {assessment.text}
               </p>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed">{assessment.detail}</p>
             </div>
             <div className="rounded-2xl border border-white/25 bg-white/10 p-6 sm:p-8">
               <MessageCircle className="mb-4 h-8 w-8" aria-hidden="true" />
               <h3 className="text-xl font-semibold">Vamos conversar sobre a avaliação?</h3>
-              <p className="mt-3 text-sm leading-relaxed">Tire suas dúvidas diretamente pelo WhatsApp.</p>
+              <p className="mt-3 text-sm leading-relaxed">Me conte o que motivou sua procura. Eu explico como funciona.</p>
               <a
                 href={getWhatsAppUrl(assessment.message)}
                 target="_blank"

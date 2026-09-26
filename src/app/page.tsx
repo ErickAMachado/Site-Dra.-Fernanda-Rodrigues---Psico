@@ -9,12 +9,9 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ServicesSection from "@/components/ServicesSection";
 import SiteHeader from "@/components/SiteHeader";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { getTestimonials } from "@/lib/content";
 
-export default async function HomePage() {
-  const testimonials = await getTestimonials();
+export default function HomePage() {
 
   return (
     <>
@@ -26,7 +23,6 @@ export default async function HomePage() {
         <ServicesSection />
         <ApproachSection />
         <AutismSection />
-        <TestimonialsSection testimonials={testimonials} />
         <BookingCtaSection />
         <ContactSection />
         <FAQSection />

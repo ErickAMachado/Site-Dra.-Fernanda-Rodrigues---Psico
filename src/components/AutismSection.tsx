@@ -19,16 +19,14 @@ export default function AutismSection() {
             <div className="max-w-3xl">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-primary">
                 <HeartHandshake className="h-4 w-4" aria-hidden="true" />
-                Atendimento individualizado
+                Crianças, adolescentes e suas famílias
               </div>
               <h2 className="section-title">{siteContent.autism.title}</h2>
               <p className="section-subtitle">{siteContent.autism.text}</p>
             </div>
 
             <div className="max-w-sm rounded-2xl border border-border bg-white/80 p-5 text-sm leading-relaxed text-muted">
-              O acompanhamento respeita o tempo, a comunicação e as
-              particularidades de cada criança, sem promessas de cura ou
-              resultados garantidos.
+              {siteContent.autism.family}
             </div>
           </div>
         </motion.div>

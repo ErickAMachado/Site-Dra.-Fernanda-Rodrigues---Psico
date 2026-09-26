@@ -28,12 +28,14 @@ export default function Hero() {
         >
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-4 py-2 text-sm text-muted backdrop-blur">
             <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
-            Atendimento humanizado e desenvolvimento infantil
+            Psicologia para crianças, adolescentes e adultos
           </div>
 
           <h1 className="max-w-3xl text-4xl leading-tight font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {siteContent.hero.title}
           </h1>
+
+          <p className="mt-4 text-sm font-medium text-primary-dark">Psicóloga · {siteContent.registration}</p>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
             {siteContent.hero.subtitle}
@@ -47,10 +49,10 @@ export default function Hero() {
               className="btn-primary"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              Falar pelo WhatsApp
+              Fale comigo pelo WhatsApp
             </a>
             <Link href="#sobre" className="btn-secondary">
-              Conhecer o trabalho
+              Conhecer meu trabalho
               <ArrowDown className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
@@ -67,7 +69,7 @@ export default function Hero() {
             <div className="relative h-[550px] w-full overflow-hidden rounded-[1.4rem]">
               <Image
               src="/Fernanda-foto-site.png"
-              alt="Foto profissional da psicóloga"
+              alt="Fernanda Rodrigues, psicóloga"
               fill
               sizes="(max-width: 768px) 100vw, 40vw"
               className="object-cover object-top"
@@ -80,7 +82,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.5 }}
-              className="absolute right-4 -bottom-4 max-w-[220px] rounded-2xl border border-border bg-white p-4 shadow-lg"
+              className="absolute right-4 bottom-4 max-w-[220px] rounded-2xl border border-border bg-white p-4 shadow-lg"
             >
               <p className="text-sm leading-relaxed font-medium text-foreground">
                 {siteContent.hero.trustCard}

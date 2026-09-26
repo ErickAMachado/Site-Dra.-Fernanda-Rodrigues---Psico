@@ -16,7 +16,7 @@ export function getWhatsAppUrl(message?: string) {
   const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
   const defaultMessage =
     message ??
-    "Olá, gostaria de saber mais sobre o atendimento.";
+    "Olá, Fernanda! Gostaria de saber mais sobre o atendimento.";
 
   return `https://wa.me/${number}?text=${encodeURIComponent(defaultMessage)}`;
 }

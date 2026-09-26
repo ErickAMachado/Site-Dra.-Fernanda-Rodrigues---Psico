@@ -1,176 +1,88 @@
-import type { Testimonial } from "@/types/database";
-
 export const siteContent = {
   psychologistName: "Fernanda Rodrigues",
+  registration: "CRP 06/210733",
   hero: {
-    title:
-      "Fernanda Rodrigues — Psicologia para crianças e adolescentes",
-    subtitle:
-      "Atendimento voltado ao desenvolvimento emocional, social e comportamental de crianças e adolescentes, com experiência no acompanhamento de crianças autistas.",
-    trustCard:
-      "Atendimento psicológico para crianças, adolescentes e famílias",
+    title: "Olá, sou a Fernanda. Sou psicóloga.",
+    subtitle: "Meu foco é o cuidado de crianças e adolescentes, e também atendo adultos. Aqui, você pode conhecer meu trabalho e conversar comigo sobre o que está buscando para você ou para seu filho.",
+    trustCard: "Presencial em Hortolândia e psicoterapia online para adolescentes e adultos",
   },
   about: {
-    title: "Sobre a psicóloga",
-    text: "Psicóloga dedicada ao atendimento de crianças e adolescentes, com atuação voltada ao desenvolvimento emocional, social e comportamental. Seu trabalho busca acolher cada criança em sua individualidade, respeitando seu tempo, sua história e suas necessidades.",
+    title: "Um pouco sobre mim",
+    text: "Sou Fernanda Rodrigues, psicóloga, e trabalho com a Terapia Cognitivo-Comportamental (TCC). No consultório, procuro entender o que cada pessoa está vivendo e como isso aparece no seu dia a dia. Meu trabalho inclui psicoterapia e avaliação neuropsicológica, com atenção especial à infância e à adolescência.",
   },
   assessment: {
     title: "Avaliação neuropsicológica",
-    text: "Quer saber mais sobre a avaliação e a aplicação de testes? Converse pelo WhatsApp para conhecer o atendimento, esclarecer dúvidas e consultar a disponibilidade.",
+    text: "Dúvidas sobre atenção, aprendizagem ou comportamento podem trazer você até aqui. Realizo avaliações presenciais em Hortolândia para crianças, adolescentes e adultos, por encaminhamento ou por iniciativa própria.",
+    detail: "Ao final, entrego o laudo e conversamos sobre os resultados e as orientações para os próximos passos.",
     cta: "Conversar sobre a avaliação",
-    message: "Olá, gostaria de saber mais sobre a avaliação neuropsicológica e a aplicação de testes.",
+    message: "Olá, Fernanda! Gostaria de entender como funciona a avaliação neuropsicológica.",
   },
   approach: {
-    title: "Abordagem no atendimento",
-    text: "O trabalho é conduzido com escuta atenta, vínculo seguro e linguagem adequada à idade de cada criança ou adolescente. Cada processo é construído de forma individual, com participação da família quando necessário.",
+    title: "Como trabalho",
+    text: "Na TCC, olhamos para a relação entre pensamentos, emoções e comportamentos. Ao longo dos encontros, trabalhamos as dificuldades que fazem parte da sua rotina, respeitando sua história e seu momento.",
     items: [
-      "Escuta acolhedora e respeito ao ritmo de cada criança",
-      "Ambiente seguro para expressão emocional",
-      "Comunicação clara com pais e responsáveis",
-      "Intervenções baseadas em evidências e ética profissional",
+      "Espaço para falar sobre o que está acontecendo",
+      "Objetivos conversados ao longo do acompanhamento",
+      "Atendimento pensado para a idade e as necessidades de cada pessoa",
+      "Encontros e devolutivas frequentes com os responsáveis no acompanhamento infantil",
     ],
   },
   autism: {
-    title: "Experiência com crianças autistas",
-    text: "Atuação com crianças autistas, buscando compreender suas necessidades individuais, fortalecer habilidades socioemocionais e apoiar a família no processo de desenvolvimento.",
+    title: "Autismo e TDAH: olhar para cada pessoa",
+    text: "O acompanhamento de crianças e adolescentes autistas ou com TDAH tem um lugar importante no meu trabalho. Procuro conhecer suas formas de se comunicar, seus interesses e as dificuldades que aparecem na rotina. Também atendo outras demandas da infância, da adolescência e da vida adulta.",
+    family: "Os responsáveis fazem parte desse cuidado. Em encontros próprios e devolutivas frequentes, conversamos sobre o que acontece em casa e sobre ajustes possíveis na forma de lidar com a criança no dia a dia.",
   },
   bookingCta: {
-    title: "Pronta para dar o primeiro passo?",
-    text: "Agende uma conversa inicial para entender as necessidades da criança e esclarecer dúvidas sobre o processo terapêutico.",
+    title: "Você pode começar com uma conversa",
+    text: "Se ainda tem dúvidas sobre qual atendimento procurar, me chame. Podemos conversar sobre o que você precisa antes de agendar.",
   },
   contact: {
-    title: "Quer entender se esse atendimento faz sentido para seu filho?",
-    subtitle:
-      "Entre em contato pelo WhatsApp para conversar sobre o atendimento.",
+    title: "Vamos conversar sobre o que você procura?",
+    subtitle: "Sou eu quem responde pelo WhatsApp. Por lá, explico como funciona o atendimento e conversamos sobre valores e disponibilidade. Os atendimentos são particulares.",
   },
   faq: [
     {
-      question: "A partir de qual idade é possível iniciar o atendimento?",
-      answer:
-        "O atendimento pode ser indicado conforme a necessidade de cada criança ou adolescente. Na conversa inicial, avaliamos juntos o momento mais adequado para iniciar.",
+      question: "Você também atende adultos?",
+      answer: "Sim. Embora meu foco seja a infância e a adolescência, também atendo adultos em psicoterapia e avaliação neuropsicológica.",
     },
     {
-      question: "Os pais participam das sessões?",
-      answer:
-        "Sim, quando faz sentido para o processo. A participação dos responsáveis é importante para apoiar o desenvolvimento emocional e comportamental da criança.",
+      question: "O atendimento é presencial ou online?",
+      answer: "Atendo presencialmente em Hortolândia. A psicoterapia para adolescentes e adultos também pode ser online. O atendimento de crianças e todas as avaliações neuropsicológicas são presenciais.",
     },
     {
-      question: "Como funciona a primeira consulta?",
-      answer:
-        "A primeira conversa é um momento para conhecer a família, entender a queixa principal e explicar como o acompanhamento psicológico pode ajudar.",
+      question: "Você atende por convênio?",
+      answer: "Meus atendimentos são particulares. Para saber sobre valores e disponibilidade, fale comigo pelo WhatsApp.",
     },
     {
-      question: "O atendimento é online ou presencial?",
-      answer:
-        "Informe aqui a modalidade oferecida (presencial, online ou ambas) para que os responsáveis saibam como agendar.",
+      question: "Preciso de encaminhamento para a avaliação?",
+      answer: "Não. Você pode me procurar por iniciativa própria ou por encaminhamento de outro profissional. Na nossa conversa, explico como funciona o processo.",
     },
   ],
 };
 
 export const serviceAreas = [
   {
-    title: "Crianças",
-    description: "Acolhimento emocional e apoio ao desenvolvimento infantil.",
+    title: "Psicoterapia infantil",
+    description: "Um espaço para conhecer o que a criança vive e sente, com participação próxima dos responsáveis.",
   },
   {
-    title: "Adolescentes",
-    description: "Escuta para fase de mudanças, identidade e relações.",
+    title: "Psicoterapia para adolescentes",
+    description: "Conversas sobre sentimentos, relações e mudanças que fazem parte dessa fase.",
   },
   {
-    title: "Orientação para pais",
-    description: "Apoio para compreender e acompanhar o filho com mais segurança.",
+    title: "Psicoterapia para adultos",
+    description: "Tempo para olhar para si, para suas relações e para as dificuldades do dia a dia.",
   },
   {
-    title: "Desenvolvimento emocional",
-    description: "Fortalecimento da expressão e regulação das emoções.",
+    title: "Orientação aos responsáveis",
+    description: "Encontros para conversar sobre a rotina com a criança e pensar juntos em formas de lidar com os desafios.",
   },
   {
-    title: "Habilidades sociais",
-    description: "Desenvolvimento de comunicação, empatia e convivência.",
-  },
-  {
-    title: "Acompanhamento de crianças autistas",
-    description: "Atendimento individualizado respeitando necessidades específicas.",
-  },
-  {
-    title: "Dificuldades comportamentais",
-    description: "Compreensão e manejo de comportamentos desafiadores.",
-  },
-  {
-    title: "Ansiedade infantil/adolescente",
-    description: "Apoio para medos, preocupações e sintomas de ansiedade.",
+    title: "Autismo e TDAH",
+    description: "Acompanhamento que considera as necessidades de cada pessoa e sua realidade em casa, na escola e nas relações.",
   },
   {
     title: "Avaliação neuropsicológica",
-    description:
-      "Entre em contato pelo WhatsApp para saber mais sobre a avaliação neuropsicológica e a aplicação de testes.",
+    description: "Avaliação presencial para crianças, adolescentes e adultos, com laudo e conversa sobre os resultados.",
   },
 ];
-
-export const mockTestimonials: Testimonial[] = [
-  {
-    id: "mock-1",
-    author_name: "Mariana S.",
-    rating: 5,
-    comment:
-      "Encontramos acolhimento desde a primeira consulta. Nosso filho se sente seguro e nós, pais, nos sentimos orientados.",
-    source: "Google",
-    review_date: "2025-11-12",
-    is_active: true,
-    created_at: "2025-11-12T00:00:00.000Z",
-  },
-  {
-    id: "mock-2",
-    author_name: "Ricardo M.",
-    rating: 5,
-    comment:
-      "Profissional atenciosa, comunicativa e muito respeitosa com nossa filha autista. Recomendamos de coração.",
-    source: "Google",
-    review_date: "2025-10-03",
-    is_active: true,
-    created_at: "2025-10-03T00:00:00.000Z",
-  },
-  {
-    id: "mock-3",
-    author_name: "Camila F.",
-    rating: 5,
-    comment:
-      "Ambiente leve, escuta verdadeira e orientações claras para a família. Foi essencial no processo do nosso adolescente.",
-    source: "Google",
-    review_date: "2025-09-18",
-    is_active: true,
-    created_at: "2025-09-18T00:00:00.000Z",
-  },
-  {
-    id: "mock-4",
-    author_name: "Juliana P.",
-    rating: 5,
-    comment:
-      "Atendimento humanizado e ético. Sentimos confiança para continuar o acompanhamento psicológico.",
-    source: "Google",
-    review_date: "2025-08-22",
-    is_active: true,
-    created_at: "2025-08-22T00:00:00.000Z",
-  },
-];
-
-export async function getTestimonials(): Promise<Testimonial[]> {
-  const { createSupabaseClient } = await import("@/lib/supabaseClient");
-  const supabase = createSupabaseClient();
-
-  if (!supabase) {
-    return mockTestimonials;
-  }
-
-  const { data, error } = await supabase
-    .from("testimonials")
-    .select("*")
-    .eq("is_active", true)
-    .order("review_date", { ascending: false });
-
-  if (error || !data?.length) {
-    return mockTestimonials;
-  }
-
-  return data;
-}
