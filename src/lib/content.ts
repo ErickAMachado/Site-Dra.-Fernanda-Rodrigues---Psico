@@ -35,9 +35,7 @@ export const siteContent = {
   contact: {
     title: "Quer entender se esse atendimento faz sentido para seu filho?",
     subtitle:
-      "Envie uma mensagem curta. Respondemos pelo WhatsApp com acolhimento e clareza.",
-    successMessage:
-      "Recebemos seu contato. Em breve entraremos em contato pelo WhatsApp.",
+      "Entre em contato pelo WhatsApp para conversar sobre o atendimento.",
   },
   faq: [
     {

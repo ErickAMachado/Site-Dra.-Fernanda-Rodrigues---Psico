@@ -1,6 +1,6 @@
 # Site profissional — Psicóloga infantil e adolescente
 
-Landing page institucional em Next.js 15 para psicóloga que atende crianças e adolescentes, com captação de leads, depoimentos via Supabase e botão flutuante de WhatsApp.
+Landing page institucional em Next.js 15 para psicóloga que atende crianças e adolescentes, com contato exclusivamente pelo WhatsApp e depoimentos via Supabase.
 
 ## Stack
 
@@ -8,7 +8,6 @@ Landing page institucional em Next.js 15 para psicóloga que atende crianças e 
 - TypeScript
 - Tailwind CSS
 - Supabase
-- React Hook Form + Zod
 - Lucide React
 - Framer Motion
 
@@ -20,7 +19,6 @@ src/
     page.tsx
     layout.tsx
     globals.css
-    api/leads/route.ts
   components/
   lib/
   types/
@@ -92,15 +90,6 @@ Acesse [http://localhost:3000](http://localhost:3000).
 
 ## Supabase
 
-### Tabela `leads`
-
-Recebe contatos enviados pelo formulário do site.
-
-Políticas:
-
-- insert público permitido
-- select público bloqueado
-
 ### Tabela `testimonials`
 
 Armazena depoimentos exibidos na landing page.
@@ -158,4 +147,5 @@ Substitua também placeholders como CRP, endereço e foto profissional no Hero.
 
 - Sem painel administrativo nesta versão
 - Depoimentos mockados aparecem automaticamente se o Supabase não estiver configurado
-- Formulário salva leads via API route em `/api/leads`
+- O site não possui formulário nem API para receber dados de contato; os botões abrem o WhatsApp.
+- A remoção do formulário não altera tabelas ou registros existentes no Supabase.

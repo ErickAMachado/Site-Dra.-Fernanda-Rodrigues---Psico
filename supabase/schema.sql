@@ -3,16 +3,6 @@
 
 create extension if not exists "pgcrypto";
 
-create table if not exists public.leads (
-  id uuid primary key default gen_random_uuid(),
-  name text not null,
-  phone text not null,
-  email text,
-  message text,
-  source text default 'site',
-  created_at timestamp with time zone default now()
-);
-
 create table if not exists public.testimonials (
   id uuid primary key default gen_random_uuid(),
   author_name text not null,
@@ -24,22 +14,7 @@ create table if not exists public.testimonials (
   created_at timestamp with time zone default now()
 );
 
-alter table public.leads enable row level security;
 alter table public.testimonials enable row level security;
-
-drop policy if exists "Allow public insert on leads" on public.leads;
-create policy "Allow public insert on leads"
-  on public.leads
-  for insert
-  to anon, authenticated
-  with check (true);
-
-drop policy if exists "Deny public select on leads" on public.leads;
-create policy "Deny public select on leads"
-  on public.leads
-  for select
-  to anon, authenticated
-  using (false);
 
 drop policy if exists "Allow public read active testimonials" on public.testimonials;
 create policy "Allow public read active testimonials"

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { CalendarHeart, MessageCircle } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/supabaseClient";
@@ -44,9 +43,6 @@ export default function BookingCtaSection() {
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               Falar pelo WhatsApp
             </a>
-            <Link href="#contato" className="btn-secondary w-full">
-              Enviar mensagem
-            </Link>
           </div>
         </motion.div>
       </div>
