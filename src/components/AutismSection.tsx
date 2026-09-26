@@ -15,7 +15,7 @@ export default function AutismSection() {
           transition={{ duration: 0.5 }}
           className="soft-card overflow-hidden bg-gradient-to-br from-primary/10 via-white to-secondary/40 p-8 sm:p-10"
         >
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-primary">
                 <HeartHandshake className="h-4 w-4" aria-hidden="true" />
