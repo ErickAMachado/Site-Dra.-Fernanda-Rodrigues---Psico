@@ -14,20 +14,20 @@ function setup() {
   vm.runInNewContext(code, context);
   return { ...context, api: context.exports, scripts, storage, removed, commands: () => (window.dataLayer ?? []).map(x => Array.from(x)) };
 }
-test('No tag or click tracking before consent; refusal persists', () => {
+test('No tracking before initialization; stored refusal blocks automatic start', () => {
   const s = setup();
   assert.equal(s.api.readConsent(), null);
   s.api.trackWhatsAppClick({ target: new s.HTMLAnchorElement('https://wa.me/123?text=private'), type: 'click' });
   assert.equal(s.scripts.length, 0); assert.equal(s.commands().length, 0);
-  s.api.saveConsent('rejected'); assert.equal(s.api.readConsent(), 'rejected');
+  s.api.saveConsent('rejected'); assert.equal(s.api.readConsent(), 'rejected'); s.api.startAnalytics(); assert.equal(s.scripts.length, 0);
 });
-test('Accepted choice initializes only once, with advertising denied and sanitized page metadata', () => {
-  const s=setup(); s.api.saveConsent('accepted'); s.api.startAnalytics(); s.api.startAnalytics();
-  assert.equal(s.api.readConsent(), 'accepted'); assert.equal(s.scripts.length, 1);
+test('Automatic initialization runs once with all consent denied and sanitized metadata', () => {
+  const s=setup(); s.api.startAnalytics(); s.api.startAnalytics();
+  assert.equal(s.api.readConsent(), null); assert.equal(s.scripts.length, 1);
   assert.equal(s.scripts[0].src, 'https://www.googletagmanager.com/gtag/js?id=G-LDG98SWNGY');
   const commands=s.commands();
   assert.equal(commands[0][2].ad_user_data, 'denied');
-  assert.equal(commands[1][2].analytics_storage, 'granted');
+  assert.equal(commands[0][2].analytics_storage, 'denied'); assert(!JSON.stringify(commands).includes('granted'));
   const config=commands.find(c=>c[0]==='config')[2];
   assert.equal(config.allow_google_signals, false);
   assert.equal(config.page_referrer,'https://google.com');

@@ -30,7 +30,8 @@ export function saveConsent(choice: Consent) {
 }
 
 export function startAnalytics() {
-  if (initialized) return;
+  if (initialized || readConsent() === "rejected") return;
+  clearAnalyticsCookies();
   initialized = true;
   active = true;
   window[`ga-disable-${GOOGLE_TAG_ID}`] = false;
@@ -44,14 +45,15 @@ export function startAnalytics() {
     analytics_storage: "denied", ad_storage: "denied",
     ad_user_data: "denied", ad_personalization: "denied",
   });
-  window.gtag("consent", "update", { analytics_storage: "granted" });
+  // Limited cookieless measurement; visiting the site never grants consent.
+  window.gtag("set", "ads_data_redaction", true);
+  window.gtag("set", "url_passthrough", false);
   window.gtag("js", new Date());
   window.gtag("config", GOOGLE_TAG_ID, {
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
     page_location: window.location.origin + window.location.pathname,
     page_referrer: document.referrer ? new URL(document.referrer).origin : "",
-    cookie_expires: MAX_AGE / 1000,
   });
   const script = document.createElement("script");
   script.id = "google-analytics-tag";
@@ -67,6 +69,11 @@ export function stopAnalytics() {
     analytics_storage: "denied", ad_storage: "denied",
     ad_user_data: "denied", ad_personalization: "denied",
   });
+  clearAnalyticsCookies();
+  document.getElementById("google-analytics-tag")?.remove();
+}
+
+function clearAnalyticsCookies() {
   const domains = window.location.hostname.split(".");
   for (const cookie of document.cookie.split(";")) {
     const name = cookie.split("=")[0].trim();
@@ -78,7 +85,6 @@ export function stopAnalytics() {
       document.cookie = `${name}=; Max-Age=0; path=/; domain=.${domain}`;
     }
   }
-  document.getElementById("google-analytics-tag")?.remove();
 }
 
 export function trackWhatsAppClick(event: MouseEvent) {
