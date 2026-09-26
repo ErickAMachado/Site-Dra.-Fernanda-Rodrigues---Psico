@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteContent } from "@/lib/content";
 
 const navLinks = [
+  { href: "#avaliacao-neuropsicologica", label: "Avaliação neuropsicológica" },
   { href: "#sobre", label: "Sobre" },
   { href: "#areas", label: "Áreas" },
   { href: "#abordagem", label: "Abordagem" },
@@ -20,13 +21,16 @@ export default function SiteHeader() {
           {siteContent.psychologistName}
         </Link>
 
-        <nav aria-label="Navegação principal" className="hidden md:block">
-          <ul className="flex items-center gap-6">
+        <Link href="#avaliacao-neuropsicologica" className="ml-3 rounded-full bg-primary-dark px-3 py-2 text-xs font-semibold text-white lg:hidden">
+          Avaliação
+        </Link>
+        <nav aria-label="Navegação principal" className="hidden lg:block">
+          <ul className="flex items-center gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-muted transition hover:text-primary"
+                  className={link.href === "#avaliacao-neuropsicologica" ? "text-sm font-semibold text-primary-dark underline decoration-primary/40 underline-offset-4" : "text-sm text-muted transition hover:text-primary"}
                 >
                   {link.label}
                 </Link>

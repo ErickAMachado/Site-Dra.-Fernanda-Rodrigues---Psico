@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection";
+import AssessmentSection from "@/components/AssessmentSection";
 import ApproachSection from "@/components/ApproachSection";
 import AutismSection from "@/components/AutismSection";
 import BookingCtaSection from "@/components/BookingCtaSection";
@@ -20,6 +21,7 @@ export default async function HomePage() {
       <SiteHeader />
       <main>
         <Hero />
+        <AssessmentSection />
         <AboutSection />
         <ServicesSection />
         <ApproachSection />
