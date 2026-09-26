@@ -1,5 +1,15 @@
 # Site profissional — Psicóloga infantil e adolescente
 
+## Google Analytics e privacidade
+
+- ID: `G-LDG98SWNGY`. A tag só carrega após aceitar a medição. Recusar mantém o site e o WhatsApp funcionando.
+- Evento próprio: `whatsapp_click`, sem mensagem, URL de destino, telefone ou identificação do serviço. Mede um clique, não uma conversa ou agendamento.
+- Preferência local por até 180 dias, alterável no fim da página. Revogação bloqueia a medição, remove cookies GA acessíveis e recarrega a página.
+- Google Signals e personalização desativados. Consentimentos de publicidade permanecem negados. A URL enviada não contém parâmetros ou fragmentos; a referência contém somente a origem. Isso limita a atribuição de anúncios.
+- **Configuração na conta:** em Administrador → Fluxos de dados → fluxo Web, desative a Medição otimizada. Os eventos automáticos (especialmente cliques de saída) podem enviar URLs completas com o texto pré-preenchido do WhatsApp; o evento próprio acima não precisa deles. Essa configuração não é controlada pelo repositório.
+- Após publicar: aceitar a medição, validar a tag e `whatsapp_click` no Tag Assistant/Tempo real, vincular GA4 e Google Ads e configurar a conversão na conta. Nenhuma dessas ações na conta foi executada pelo código.
+- Testes: `node --test tests/analytics.test.cjs`.
+
 Landing page institucional em Next.js 15 para psicóloga que atende crianças e adolescentes, com foco em crianças e adolescentes, atendimento também a adultos e contato exclusivamente pelo WhatsApp.
 
 ## Stack
