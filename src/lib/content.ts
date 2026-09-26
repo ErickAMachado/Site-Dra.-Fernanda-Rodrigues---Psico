@@ -4,7 +4,7 @@ export const siteContent = {
   psychologistName: "Fernanda Rodrigues",
   hero: {
     title:
-      "Avaliação neuropsicológica e cuidado psicológico para crianças e adolescentes",
+      "Fernanda Rodrigues — Psicologia para crianças e adolescentes",
     subtitle:
       "Atendimento voltado ao desenvolvimento emocional, social e comportamental de crianças e adolescentes, com experiência no acompanhamento de crianças autistas.",
     trustCard:

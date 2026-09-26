@@ -8,7 +8,7 @@ import { siteContent } from "@/lib/content";
 import Image from "next/image";
 
 export default function Hero() {
-  const whatsappUrl = getWhatsAppUrl(siteContent.assessment.message);
+  const whatsappUrl = getWhatsAppUrl();
 
   return (
     <section
@@ -47,10 +47,10 @@ export default function Hero() {
               className="btn-primary"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              {siteContent.assessment.cta}
+              Falar pelo WhatsApp
             </a>
-            <Link href="#avaliacao-neuropsicologica" className="btn-secondary">
-              Conhecer a avaliação
+            <Link href="#sobre" className="btn-secondary">
+              Conhecer o trabalho
               <ArrowDown className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
