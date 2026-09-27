@@ -2,7 +2,7 @@ export const siteContent = {
   psychologistName: "Fernanda Rodrigues",
   registration: "CRP 06/210733",
   hero: {
-    title: "Olá, sou a Fernanda. Sou psicóloga.",
+    title: "Fernanda Rodrigues",
     subtitle: "Meu foco é o cuidado de crianças e adolescentes, e também atendo adultos. Aqui, você pode conhecer meu trabalho e conversar comigo sobre o que está buscando para você ou para seu filho.",
     trustCard: "Presencial em Hortolândia e psicoterapia online para adolescentes e adultos",
   },
