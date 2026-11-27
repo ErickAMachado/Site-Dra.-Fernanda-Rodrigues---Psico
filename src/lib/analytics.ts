@@ -1,5 +1,6 @@
 export const GOOGLE_TAG_ID = "G-LDG98SWNGY";
-export const CONSENT_KEY = "fernanda-analytics-consent-v1";
+export const CONSENT_KEY = "fernanda-analytics-consent-v2";
+const LEGACY_CONSENT_KEY = "fernanda-analytics-consent-v1";
 const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 export type Consent = "accepted" | "rejected";
 
@@ -19,6 +20,11 @@ export function readConsent(): Consent | null {
     const saved = JSON.parse(localStorage.getItem(CONSENT_KEY) ?? "null");
     if (saved && (saved.choice === "accepted" || saved.choice === "rejected") &&
         typeof saved.date === "number" && saved.date <= Date.now() && Date.now() - saved.date < MAX_AGE) return saved.choice;
+    // A legacy "accepted" only enabled cookieless measurement, not analytics cookies.
+    // Preserve legacy refusals, but require fresh explicit permission for cookies.
+    const legacy = JSON.parse(localStorage.getItem(LEGACY_CONSENT_KEY) ?? "null");
+    if (legacy?.choice === "rejected" && typeof legacy.date === "number" &&
+        legacy.date <= Date.now() && Date.now() - legacy.date < MAX_AGE) return "rejected";
   } catch { /* Storage unavailable: default to no tracking. */ }
   return null;
 }
@@ -26,12 +32,12 @@ export function readConsent(): Consent | null {
 export function saveConsent(choice: Consent) {
   try {
     localStorage.setItem(CONSENT_KEY, JSON.stringify({ choice, date: Date.now() }));
-  } catch { /* The choice still applies to this page visit. */ }
+    return true;
+  } catch { return false; }
 }
 
 export function startAnalytics() {
-  if (initialized || readConsent() === "rejected") return;
-  clearAnalyticsCookies();
+  if (initialized || readConsent() !== "accepted") return;
   initialized = true;
   active = true;
   window[`ga-disable-${GOOGLE_TAG_ID}`] = false;
@@ -45,7 +51,11 @@ export function startAnalytics() {
     analytics_storage: "denied", ad_storage: "denied",
     ad_user_data: "denied", ad_personalization: "denied",
   });
-  // Limited cookieless measurement; visiting the site never grants consent.
+  // Basic consent mode: the script is loaded only after explicit analytics consent.
+  window.gtag("consent", "update", {
+    analytics_storage: "granted", ad_storage: "denied",
+    ad_user_data: "denied", ad_personalization: "denied",
+  });
   window.gtag("set", "ads_data_redaction", true);
   window.gtag("set", "url_passthrough", false);
   window.gtag("js", new Date());
@@ -88,7 +98,7 @@ function clearAnalyticsCookies() {
 }
 
 export function trackWhatsAppClick(event: MouseEvent) {
-  if (!active || (event.type === "auxclick" && event.button !== 1)) return;
+  if (!active || readConsent() !== "accepted" || (event.type === "auxclick" && event.button !== 1)) return;
   if (!(event.target instanceof Element)) return;
   const link = event.target.closest("a[href]");
   if (!(link instanceof HTMLAnchorElement)) return;

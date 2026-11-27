@@ -18,22 +18,26 @@ test('No tracking before initialization; stored refusal blocks automatic start',
   const s = setup();
   assert.equal(s.api.readConsent(), null);
   s.api.trackWhatsAppClick({ target: new s.HTMLAnchorElement('https://wa.me/123?text=private'), type: 'click' });
+  s.api.startAnalytics();
   assert.equal(s.scripts.length, 0); assert.equal(s.commands().length, 0);
   s.api.saveConsent('rejected'); assert.equal(s.api.readConsent(), 'rejected'); s.api.startAnalytics(); assert.equal(s.scripts.length, 0);
 });
-test('Automatic initialization runs once with all consent denied and sanitized metadata', () => {
-  const s=setup(); s.api.startAnalytics(); s.api.startAnalytics();
-  assert.equal(s.api.readConsent(), null); assert.equal(s.scripts.length, 1);
+test('Explicit consent initializes once; only analytics granted; sanitized metadata', () => {
+  const s=setup(); s.api.saveConsent('accepted'); s.api.startAnalytics(); s.api.startAnalytics();
+  assert.equal(s.api.readConsent(), 'accepted'); assert.equal(s.scripts.length, 1);
   assert.equal(s.scripts[0].src, 'https://www.googletagmanager.com/gtag/js?id=G-LDG98SWNGY');
   const commands=s.commands();
   assert.equal(commands[0][2].ad_user_data, 'denied');
-  assert.equal(commands[0][2].analytics_storage, 'denied'); assert(!JSON.stringify(commands).includes('granted'));
+  assert.equal(commands[0][2].analytics_storage, 'denied');
+  const update=commands.find(c=>c[0]==='consent' && c[1]==='update')[2];
+  assert.equal(update.analytics_storage,'granted');
+  for(const key of ['ad_storage','ad_user_data','ad_personalization']) assert.equal(update[key],'denied');
   const config=commands.find(c=>c[0]==='config')[2];
   assert.equal(config.allow_google_signals, false);
   assert.equal(config.page_referrer,'https://google.com');
 });
 test('Tracks WhatsApp exactly once per click without URL, phone, message or service', () => {
-  const s=setup(); s.api.startAnalytics();
+  const s=setup(); s.api.saveConsent('accepted'); s.api.startAnalytics();
   const link=new s.HTMLAnchorElement('https://wa.me/5519123456789?text=private');
   s.api.trackWhatsAppClick({target:link,type:'click',button:0});
   s.api.trackWhatsAppClick({target:new s.HTMLAnchorElement('https://example.com'),type:'click'});
@@ -53,4 +57,19 @@ test('Expired, malformed and unavailable consent storage defaults to no consent'
   assert.equal(s.api.readConsent(),null);
   s.storage.set(s.api.CONSENT_KEY,'invalid'); assert.equal(s.api.readConsent(),null);
   s.localStorage.getItem=()=>{throw Error('blocked');}; assert.equal(s.api.readConsent(),null);
+});
+
+test('Legacy acceptance does not authorize cookies; legacy refusal is preserved', () => {
+  const s=setup();
+  const key='fernanda-analytics-consent-v1';
+  s.storage.set(key,JSON.stringify({choice:'accepted',date:Date.now()}));
+  assert.equal(s.api.readConsent(),null); s.api.startAnalytics(); assert.equal(s.scripts.length,0);
+  s.storage.set(key,JSON.stringify({choice:'rejected',date:Date.now()}));
+  assert.equal(s.api.readConsent(),'rejected'); s.api.startAnalytics(); assert.equal(s.scripts.length,0);
+  assert.equal(s.api.saveConsent('accepted'),true); s.api.startAnalytics(); assert.equal(s.scripts.length,1);
+});
+test('Storage errors prevent consent and script initialization', () => {
+  const s=setup(); s.localStorage.setItem=()=>{throw Error('blocked');};
+  assert.equal(s.api.saveConsent('accepted'),false);
+  s.api.startAnalytics(); assert.equal(s.scripts.length,0);
 });
